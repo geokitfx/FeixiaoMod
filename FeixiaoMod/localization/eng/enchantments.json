@@ -1,0 +1,19 @@
+﻿{
+  "FEIXIAOMOD-VULNERABLE_ENCHANT.description": "Applies a [blue]Vulnerable[/blue] enchantment to one of any [gold]Attack Card[/gold].",
+  "FEIXIAOMOD-VULNERABLE_ENCHANT.title": "Medicinal Scent",
+  "FEIXIAOMOD-VULNERABLE_ENCHANT.extraCardText": "Apply {Amount} Vulnerable to attacked targets, once-per-enemy-per-play.",
+
+  "FEIXIAOMOD-DOOM_ENCHANT.description": "Applies a [gold]Doom[/gold] enchantment to one of any [gold]Attack Card[/gold].",
+  "FEIXIAOMOD-DOOM_ENCHANT.title": "Offering Marker",
+  "FEIXIAOMOD-DOOM_ENCHANT.extraCardText": "Apply {Amount} Doom to attacked targets, once-per-enemy-per-play.",
+
+  "FEIXIAOMOD-COST_CLONE_ENCHANT.description": "Applies [gold]Clone[/gold] to any [gold]Attack[/gold] or [gold]Skill[/gold] card and Lowers Energy Cost By 1",
+  "FEIXIAOMOD-COST_CLONE_ENCHANT.title": "Lucky Tail",
+
+  "FEIXIAOMOD-SKULL_EXHAUST_ENCHANT.description": "Applies [gold]Exhaust[gold] to all [gold]Skill[/gold] cards.",
+  "FEIXIAOMOD-SKULL_EXHAUST_ENCHANT.title": "Baleful Burden",
+
+  "FEIXIAOMOD-RUNE_HUNT_ENCHANT.description": "All [gold]Strike[/gold] cards are now [gold]Corrupted[/gold] & [gold]Eternal[/gold].",
+  "FEIXIAOMOD-RUNE_HUNT_ENCHANT.extraCardText": "Lose 2 HP.",
+  "FEIXIAOMOD-RUNE_HUNT_ENCHANT.title": "Hunters Rune"
+}

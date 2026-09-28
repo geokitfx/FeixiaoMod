@@ -1,0 +1,10 @@
+﻿{
+  "FEIXIAOMOD-YASAKA_FUMO_CARD.description": "{IsMultiplayer:Everyone's Attacks deal |Attacks deal } [gold]Double Damage[/gold] for the next {DoubleDamagePower:diff()} turns.",
+  "FEIXIAOMOD-YASAKA_FUMO_CARD.title": "Wife Plush Power",
+
+  "FEIXIAOMOD-AXE_CARD.description": "Lose 5 [green]HP[/green].\nGain {StrengthPower:diff()} [gold]Strength[/gold].",
+  "FEIXIAOMOD-AXE_CARD.title": "Blood Tribute",
+
+  "FEIXIAOMOD-FANGED_GRIN_CARD.description": "Deal 10 Damage.\nWhen you land a [gold]Fatal[/gold] attack, {IsMultiplayer:everyone heals |heal }{Healing:diff()} [green]HP[/green].",
+  "FEIXIAOMOD-FANGED_GRIN_CARD.title": "Blood Moon"
+}

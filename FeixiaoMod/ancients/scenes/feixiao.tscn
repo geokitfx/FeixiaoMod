@@ -1,0 +1,15 @@
+[gd_scene load_steps=2 format=3 uid="uid://iuo70m1x125a"]
+
+[ext_resource type="Texture2D" uid="uid://bdvh1yvmhm6ht" path="res://FeixiaoMod/images/ancients/Feixiao/feixao.png" id="1_2xoll"]
+
+[node name="feixiao" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = -349.0
+offset_top = -100.0
+offset_right = 2211.0
+offset_bottom = 1100.0
+texture = ExtResource("1_2xoll")

@@ -1,0 +1,14 @@
+﻿{
+  "id": "FeixiaoMod",
+  "name": "FeixiaoMod",
+  "author": "GeokitFX & Spaceghetti",
+  "description": "A mod that adds the custom 'Mother of the Hunt' Ancient to Slay The Spire 2",
+  "version": "v1.0.3",
+  "min_game_version": "0.107.0",
+  "has_pck": true,
+  "has_dll": true,
+  "dependencies": [
+    {"id": "BaseLib", "min_version": "3.4.5"}
+  ],
+  "affects_gameplay": true
+}

@@ -1,0 +1,69 @@
+﻿﻿using System.Reflection;
+using System.Reflection.Emit;
+using HarmonyLib;
+using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Events;
+using MegaCrit.Sts2.Core.Random;
+using MegaCrit.Sts2.Core.Unlocks;
+
+namespace FeixiaoMod.FeixiaoModCode.Patches;
+
+[HarmonyPatch(
+    typeof(ActModel),
+    nameof(ActModel.GenerateRooms), typeof(Rng), typeof(UnlockState), typeof(bool))]
+public static class Feixiaomod_DisableBaseGameAncients_Patch
+{
+    private static readonly MethodInfo FilterAncientsMethod =
+        AccessTools.Method(
+            typeof(Feixiaomod_DisableBaseGameAncients_Patch),
+            nameof(FilterAncients));
+
+    private static readonly MethodInfo EnumerableConcatMethod =
+        AccessTools.Method(typeof(Enumerable), nameof(Enumerable.Concat))
+            .MakeGenericMethod(typeof(AncientEventModel));
+
+    [HarmonyTranspiler]
+    public static IEnumerable<CodeInstruction> Transpiler(IEnumerable<CodeInstruction> instructions)
+    {
+        foreach (CodeInstruction instruction in instructions)
+        {
+            yield return instruction;
+
+            // After:
+            // this.GetUnlockedAncients(unlockState)
+            //     .Concat(this._sharedAncientSubset ?? new List<AncientEventModel>())
+            //
+            // inject:
+            //     .FilterAncients()
+            if (instruction.Calls(EnumerableConcatMethod))
+            {
+                yield return new CodeInstruction(OpCodes.Call, FilterAncientsMethod);
+            }
+        }
+    }
+
+    private static IEnumerable<AncientEventModel> FilterAncients(
+        IEnumerable<AncientEventModel> ancients)
+    {
+        IEnumerable<AncientEventModel> filtered = ancients;
+
+        if (FeixiaoMod_ModConfig.Disable_Base_Game_Ancients)
+        {
+            filtered = filtered.Where(ancient =>
+                ancient is not Nonupeipe &&
+                ancient is not Tanx &&
+                ancient is not Vakuu &&
+                ancient is not Orobas &&
+                ancient is not Pael &&
+                ancient is not Tezcatara &&
+                ancient is not Darv);
+        }
+
+        if (FeixiaoMod_ModConfig.Disable_Neow)
+        {
+            filtered = filtered.Where(ancient => ancient is not Neow);
+        }
+
+        return filtered.ToArray();
+    }
+}

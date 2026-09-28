@@ -1,0 +1,49 @@
+﻿{
+  "FEIXIAOMOD-YASAKA_FUMO_RELIC.description": "Adds 1 [gold]Wife Plush Power[/gold] to your deck.",
+  "FEIXIAOMOD-YASAKA_FUMO_RELIC.flavor": "I miss my wife, Player, I miss her a lot.",
+  "FEIXIAOMOD-YASAKA_FUMO_RELIC.title": "Golden Foxian Plush",
+
+  "FEIXIAOMOD-AXE_RELIC.description": "Adds 1 [gold]Blood Tribute[/gold] to your deck.",
+  "FEIXIAOMOD-AXE_RELIC.flavor": "Ah, I still [i][b]remember[/b][/i] the first time I used this very axe, it was to defend my [i][b]brood~[/b][/i]",
+  "FEIXIAOMOD-AXE_RELIC.title": "Mother's Axe",
+
+  "FEIXIAOMOD-MILK_BOTTLE_RELIC.description": "Permanently gain an additional {Energy:energyIcons()}",
+  "FEIXIAOMOD-MILK_BOTTLE_RELIC.flavor": "I get so full you know? [i][b]Gotta get rid of the pressure somehow~[/b][/i]",
+  "FEIXIAOMOD-MILK_BOTTLE_RELIC.title": "Fresh Milk Bottle",
+
+  "FEIXIAOMOD-OFFERING_PLATE_RELIC.description": "Enchants any [gold]Attack Card[/gold] with the [purple]Offering Marker[/purple] [gold]Enchant[/gold].",
+  "FEIXIAOMOD-OFFERING_PLATE_RELIC.flavor": "Oh my? You wish to offer your prey to me? [i][b]I'll gladly indulge every bite.[b][/i]",
+  "FEIXIAOMOD-OFFERING_PLATE_RELIC.title": "Empty Offering Plate",
+
+  "FEIXIAOMOD-PREYS_SKULL_RELIC.description": "Enchants all [gold]Skill[/gold] cards with the [purple]Baleful Burden[/purple] [gold]Enchant[/gold].",
+  "FEIXIAOMOD-PREYS_SKULL_RELIC.flavor": "Ah, this one, I remember him, tried to get to me through my kids. [i][b]Didn't end well for him.[/b][/i]",
+  "FEIXIAOMOD-PREYS_SKULL_RELIC.title": "Old Skull",
+
+  "FEIXIAOMOD-SWADDLING_CLOTH_RELIC.description": "Start each [gold]Elite[/gold] and [gold]Boss[/gold] combat with [blue]{RegenPower}[/blue] [gold]Regen[/gold].",
+  "FEIXIAOMOD-SWADDLING_CLOTH_RELIC.flavor": "Ah, keep this on you for me, would you? I rather you come back in one piece so I can eat you [i][b]whole[/b][/i] myself.",
+  "FEIXIAOMOD-SWADDLING_CLOTH_RELIC.title": "Swaddling Cloth",
+
+  "FEIXIAOMOD-WIND_PUPPER_PLUSH_RELIC.description": "At the start of your turn, gain [blue]{Block}[/blue] [gold]Block[/gold].\nWhenever you [gold]Exhaust[/gold] a card, gain [blue]{Block}[/blue] [gold]Block[/gold].",
+  "FEIXIAOMOD-WIND_PUPPER_PLUSH_RELIC.flavor": "Yes, my [i][b]Flying Aureus[/b][/i] plush, my first bit of handmade work I put together and gave to one of my kids~",
+  "FEIXIAOMOD-WIND_PUPPER_PLUSH_RELIC.title": "Aureus Plush",
+
+  "FEIXIAOMOD-WOMB_TATTOO_RELIC.description": "Enchants all [gold]Strike[/gold] cards with the [purple]Hunters Rune[/purple] [gold]Enchant[/gold].",
+  "FEIXIAOMOD-WOMB_TATTOO_RELIC.flavor": "This little thing? Be glad I don't brand you with it myself~ [i][b]It was given to me by someone very special to me.[/b][/i]",
+  "FEIXIAOMOD-WOMB_TATTOO_RELIC.title": "Rune of The Hunt",
+
+  "FEIXIAOMOD-MEDIC_FAN_RELIC.description": "Enchants any [gold]Attack Card[/gold] with the [purple]Medicinal Scent[/purple] [gold]Enchant[/gold].",
+  "FEIXIAOMOD-MEDIC_FAN_RELIC.flavor": "Oh this old thing? My personal physician used to use it. I hope it helps you on your journey~",
+  "FEIXIAOMOD-MEDIC_FAN_RELIC.title": "Hand Held Fan",
+
+  "FEIXIAOMOD-TOUCH_FLUFFY_TAIL_RELIC.description": "Enchants any [gold]Attack[/gold] or [gold]Skill[/gold] card with the [purple]Lucky Tail[/purple] [gold]Enchant[/gold]",
+  "FEIXIAOMOD-TOUCH_FLUFFY_TAIL_RELIC.flavor": "A little luck goes a long way, yes? [i][b]Foxes are signs of good luck, intelligence and adaptability after all~[/b][/i]",
+  "FEIXIAOMOD-TOUCH_FLUFFY_TAIL_RELIC.title": "Fox Tail",
+
+  "FEIXIAOMOD-GOLD_KUNOU_RELIC.description": "Every 3 combats, double your [gold]Gold[/gold].",
+  "FEIXIAOMOD-GOLD_KUNOU_RELIC.flavor": "Ah yes, this was my first child, well... Technically she's a step daughter, but I remade her into my own child eventually.",
+  "FEIXIAOMOD-GOLD_KUNOU_RELIC.title": "Golden Child Idol",
+
+  "FEIXIAOMOD-FANGED_GRIN_RELIC.description": "Adds 1 [gold]Blood Moon[/gold] to your deck.",
+  "FEIXIAOMOD-FANGED_GRIN_RELIC.flavor": "Merely call upon my name in battle, and feed me tribute Child.",
+  "FEIXIAOMOD-FANGED_GRIN_RELIC.title": "Feixiao's Mad Grin"
+}
