@@ -9,11 +9,6 @@ namespace FeixiaoMod.FeixiaoModCode.Ancients.Feixiao;
 
 public class FeixiaoAncient  : CustomAncientModel 
 { 
-    public override string CustomScenePath => "res://FeixiaoMod/ancients/scenes/feixiao.tscn";
-    public override string CustomMapIconPath => "res://FeixiaoMod/ancients/images/packed/map/ancients/ancient_node_feixiaomod-feixiaoancient.png";
-    public override string CustomMapIconOutlinePath => "res://FeixiaoMod/ancients/images/packed/map/ancients/ancient_node_feixiaomod-feixiaoancient_outline.png";
-    public override string CustomRunHistoryIconPath => "res://FeixiaoMod/ancients/ui/run_history/feixiaomod-feixiaoancient.png";
-    public override string CustomRunHistoryIconOutlinePath => "res://FeixiaoMod/ancients/ui/run_history/feixiaomod-feixiaoancient_outline.png";
     protected override OptionPools MakeOptionPools
     {
         get
@@ -88,4 +83,10 @@ public class FeixiaoAncient  : CustomAncientModel
     {
         return act.ActNumber() == 1 && !FeixiaoMod_ModConfig.Disable_Feixiao || act.ActNumber() == 2 || act.ActNumber() == 3;
     }
+    
+    public override string CustomScenePath => "res://FeixiaoMod/ancients/scenes/feixiao.tscn";
+    public override string CustomMapIconPath => "res://FeixiaoMod/ancients/images/packed/map/ancients/ancient_node_feixiaomod-feixiaoancient.png";
+    public override string CustomMapIconOutlinePath => "res://FeixiaoMod/ancients/images/packed/map/ancients/ancient_node_feixiaomod-feixiaoancient_outline.png";
+    public override string CustomRunHistoryIconPath => "res://FeixiaoMod/ancients/ui/run_history/feixiaomod-feixiaoancient.png";
+    public override string CustomRunHistoryIconOutlinePath => "res://FeixiaoMod/ancients/ui/run_history/feixiaomod-feixiaoancient_outline.png";
 }

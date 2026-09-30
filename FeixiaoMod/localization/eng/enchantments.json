@@ -10,8 +10,9 @@
   "FEIXIAOMOD-COST_CLONE_ENCHANT.description": "Applies [gold]Clone[/gold] to any [gold]Attack[/gold] or [gold]Skill[/gold] card and Lowers Energy Cost By 1",
   "FEIXIAOMOD-COST_CLONE_ENCHANT.title": "Lucky Tail",
 
-  "FEIXIAOMOD-SKULL_EXHAUST_ENCHANT.description": "Applies [gold]Exhaust[gold] to all [gold]Skill[/gold] cards.",
-  "FEIXIAOMOD-SKULL_EXHAUST_ENCHANT.title": "Baleful Burden",
+  "FEIXIAOMOD-SKULL_GOLD_ENCHANT.description": "This card now costs [gold]Gold[/gold] instead of [blue]Energy[/blue], when cast using [gold]Gold[/gold] the card has [blue]Replay 1[/blue]. When out of [gold]Gold[/gold], you go back to using [blue]Energy[/blue].",
+  "FEIXIAOMOD-SKULL_GOLD_ENCHANT.extraCardText": "If you have enough gold, This card will be Played using Gold with a Replay 1.",
+  "FEIXIAOMOD-SKULL_GOLD_ENCHANT.title": "Baleful Burden",
 
   "FEIXIAOMOD-RUNE_HUNT_ENCHANT.description": "All [gold]Strike[/gold] cards deal [gold]Triple Damage[/gold] and applies [blue]Vulnerable[/blue] to self.",
   "FEIXIAOMOD-RUNE_HUNT_ENCHANT.extraCardText": "Apply {Amount} Vulnerable to self.",
