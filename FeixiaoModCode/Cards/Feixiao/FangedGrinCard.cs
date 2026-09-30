@@ -14,11 +14,10 @@ namespace FeixiaoMod.FeixiaoModCode.Cards.Feixiao;
 
 
 [Pool(typeof(EventCardPool))]
-public class  FangedGrinCard: CustomCardModel
+public class FangedGrinCard() : CustomCardModel(2, CardType.Attack, CardRarity.Ancient, TargetType.AnyEnemy)
 {
     private const string Healing = "Healing";
-    public FangedGrinCard() : base(2, CardType.Attack, CardRarity.Ancient, TargetType.AnyEnemy) {}
-    
+
     protected override void AddExtraArgsToDescription(LocString description)
     {
         var playerCount = RunState?.Players.Count ?? 1; // choose desired default here

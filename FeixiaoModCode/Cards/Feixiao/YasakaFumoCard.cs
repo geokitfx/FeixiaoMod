@@ -11,10 +11,8 @@ using MegaCrit.Sts2.Core.Models.Powers;
 namespace FeixiaoMod.FeixiaoModCode.Cards.Feixiao;
 
 [Pool(typeof(EventCardPool))]
-public class YasakaFumoCard : CustomCardModel
+public class YasakaFumoCard() : CustomCardModel(1, CardType.Power, CardRarity.Ancient, TargetType.Self)
 {
-    public YasakaFumoCard() : base(1, CardType.Power, CardRarity.Ancient, TargetType.Self) {}
-
     protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<DoubleDamagePower>(1)];
 
     protected override void AddExtraArgsToDescription(LocString description)

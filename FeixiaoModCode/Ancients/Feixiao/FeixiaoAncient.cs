@@ -44,7 +44,7 @@ public class FeixiaoAncient  : CustomAncientModel
         // Lock Relics to Specifically Act 2
         if (actNumber is null or 2)
         {
-
+            options.Add(AncientOption<WindPupperPlushRelic>(weight: 100));
         }
 
         // Lock Relics to Specifically Act 3
@@ -60,9 +60,8 @@ public class FeixiaoAncient  : CustomAncientModel
         options.Add(AncientOption<OfferingPlateRelic>(weight: 100));
         options.Add(AncientOption<FangedGrinRelic>(weight: 100));
         options.Add(AncientOption<TouchFluffyTailRelic>(weight: 100));
-        // options.Add(AncientOption<WombTattooRelic>(weight: 100));
-        // options.Add(AncientOption<MilkBottleRelic>(weight: 100));
-        // options.Add(AncientOption<WindPupperPlushRelic>(weight: 100));
+        options.Add(AncientOption<WombTattooRelic>(weight: 100));
+        options.Add(AncientOption<MilkBottleRelic>(weight: 100));
         // options.Add(AncientOption<PreysSkullRelic>(weight: 100));
         options.Add(AncientOption<MedicFanRelic>(weight: 100));
             

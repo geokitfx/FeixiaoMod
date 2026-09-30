@@ -11,10 +11,8 @@ using MegaCrit.Sts2.Core.ValueProps;
 namespace FeixiaoMod.FeixiaoModCode.Cards.Feixiao;
 
 [Pool(typeof(EventCardPool))]
-public class AxeCard : CustomCardModel
+public class AxeCard() : CustomCardModel(3, CardType.Power, CardRarity.Ancient, TargetType.Self)
 {
-    public AxeCard() : base(3, CardType.Power, CardRarity.Ancient, TargetType.Self) {}
-
     private const string Hpl = "hpl";
     
     protected override IEnumerable<DynamicVar> CanonicalVars => [new (Hpl, 5), new PowerVar<StrengthPower>(7)];

@@ -30,7 +30,7 @@ public class WombTattooRelic() : CustomRelicModel
     public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
     {
         newCard = null;
-        if (!ModelDb.Enchantment<RuneHuntEnchant>().CanEnchant(card))
+        if (!ModelDb.Enchantment<HeartOfHavocEnchant>().CanEnchant(card))
         {
             return false;
         }
@@ -40,7 +40,7 @@ public class WombTattooRelic() : CustomRelicModel
 
     private void CardSkillCheck(List<CardCreationResult> options)
     {
-        RuneHuntEnchant se2 = ModelDb.Enchantment<RuneHuntEnchant>();
+        HeartOfHavocEnchant se2 = ModelDb.Enchantment<HeartOfHavocEnchant>();
         foreach (CardCreationResult option in options)
         {
             CardModel card = option.Card;
@@ -54,7 +54,7 @@ public class WombTattooRelic() : CustomRelicModel
     private CardModel EnchantCard(CardModel card)
     {
         CardModel item = Owner.RunState.CloneCard(card);
-        CardCmd.Enchant<RuneHuntEnchant>(item, 1);
+        CardCmd.Enchant<HeartOfHavocEnchant>(item, 1);
         CardCmd.Preview(item);
         return item;
     }
@@ -65,9 +65,9 @@ public class WombTattooRelic() : CustomRelicModel
         IEnumerable<CardModel> enumerable = PileType.Deck.GetPile(Owner).Cards.ToList();
         foreach (CardModel item in enumerable)
         {
-            if (item.Tags.Contains(CardTag.Strike) && ModelDb.Enchantment<RuneHuntEnchant>().CanEnchant(item))
+            if (item.Tags.Contains(CardTag.Strike) && ModelDb.Enchantment<HeartOfHavocEnchant>().CanEnchant(item))
             {
-                CardCmd.Enchant<RuneHuntEnchant>(item, 1);
+                CardCmd.Enchant<HeartOfHavocEnchant>(item, 1);
                 CardCmd.Preview(item);
             }
         }

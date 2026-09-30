@@ -1,43 +1,43 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
-using MegaCrit.Sts2.Core.Combat;
 using MegaCrit.Sts2.Core.Commands;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.Entities.Relics;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Localization.DynamicVars;
-using MegaCrit.Sts2.Core.Models;
+using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.Models.RelicPools;
-using MegaCrit.Sts2.Core.ValueProps;
+using MegaCrit.Sts2.Core.Rooms;
 
 namespace FeixiaoMod.FeixiaoModCode.Relics.Feixiao;
 
 [Pool(typeof(EventRelicPool))]
-public class WindPupperPlushRelic() : CustomRelicModel
+public class WindPupperPlushRelic : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
-    
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new BlockVar(3, ValueProp.Unpowered)];
-    
+
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new PowerVar<PlatingPower>(5M)];
     protected override IEnumerable<IHoverTip> ExtraHoverTips => [HoverTipFactory.Static(StaticHoverTip.Block)];
-    
-    public override async Task AfterSideTurnStart(CombatSide side, IReadOnlyList<Creature> participants, ICombatState combatState)
+
+    public override async Task AfterRoomEntered(AbstractRoom room)
     {
-        if (participants.Contains(Owner.Creature))
+        if (room is CombatRoom)
         {
-            Flash();
-            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null);
+            await AddPlating();
         }
     }
-    
-    public override async Task AfterCardExhausted(PlayerChoiceContext choiceContext, CardModel card, bool _)
+
+    private async Task AddPlating()
     {
-        if (card.Owner == Owner)
-        {
-            Flash();
-            await CreatureCmd.GainBlock(Owner.Creature, DynamicVars.Block, null);
-        }
+            var creature = Owner.Creature;
+            var missingHp = creature.MaxHp - creature.CurrentHp;
+            var interval = (missingHp * 4) / creature.MaxHp;
+            if (interval > 0)
+            {
+                Flash();
+                var windPlating = interval * DynamicVars["PlatingPower"].BaseValue;
+                await PowerCmd.Apply<PlatingPower>(new ThrowingPlayerChoiceContext(), Owner.Creature, windPlating, Owner.Creature, null);
+            }
     }
     
     public override string PackedIconPath => "res://FeixiaoMod/images/relics/feiWindPupperPlush_relic.png";

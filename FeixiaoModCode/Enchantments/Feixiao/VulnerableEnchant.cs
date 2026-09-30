@@ -24,8 +24,7 @@ public class VulnerableEnchant : CustomEnchantmentModel
     
     private List<Creature> _hitEnemies = [];
     
-    public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props,
-        Creature target, CardModel? cardSource)
+    public override async Task AfterDamageGiven(PlayerChoiceContext choiceContext, Creature? dealer, DamageResult result, ValueProp props, Creature target, CardModel? cardSource)
     {
         if (cardSource == Card && Status == EnchantmentStatus.Normal && !_hitEnemies.Contains(target)){
             await PowerCmd.Apply<VulnerablePower>(choiceContext, target, Amount, dealer, cardSource);
