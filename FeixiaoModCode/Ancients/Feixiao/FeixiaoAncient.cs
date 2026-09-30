@@ -57,7 +57,7 @@ public class FeixiaoAncient  : CustomAncientModel
         options.Add(AncientOption<TouchFluffyTailRelic>(weight: 100));
         options.Add(AncientOption<WombTattooRelic>(weight: 100));
         options.Add(AncientOption<MilkBottleRelic>(weight: 100));
-        // options.Add(AncientOption<PreysSkullRelic>(weight: 100));
+        options.Add(AncientOption<PreysSkullRelic>(weight: 100));
         options.Add(AncientOption<MedicFanRelic>(weight: 100));
             
         /*
