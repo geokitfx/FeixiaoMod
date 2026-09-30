@@ -11,7 +11,7 @@
   "FEIXIAOMOD-COST_CLONE_ENCHANT.title": "Lucky Tail",
 
   "FEIXIAOMOD-SKULL_GOLD_ENCHANT.description": "This card now costs [gold]Gold[/gold] instead of [blue]Energy[/blue], when cast using [gold]Gold[/gold] the card has [blue]Replay 1[/blue]. When out of [gold]Gold[/gold], you go back to using [blue]Energy[/blue].",
-  "FEIXIAOMOD-SKULL_GOLD_ENCHANT.extraCardText": "If you have enough gold, This card will be Played using Gold with a Replay 1.",
+  "FEIXIAOMOD-SKULL_GOLD_ENCHANT.extraCardText": "If cast using Gold, Replay once.",
   "FEIXIAOMOD-SKULL_GOLD_ENCHANT.title": "Baleful Burden",
 
   "FEIXIAOMOD-RUNE_HUNT_ENCHANT.description": "All [gold]Strike[/gold] cards deal [gold]Triple Damage[/gold] and applies [blue]Vulnerable[/blue] to self.",

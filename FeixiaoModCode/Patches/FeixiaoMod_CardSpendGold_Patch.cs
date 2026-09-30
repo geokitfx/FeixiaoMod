@@ -15,7 +15,7 @@ namespace FeixiaoMod.FeixiaoModCode.Patches;
 /// </summary>
 public static class GoldSpendHelper
 {
-    public const int GoldPerEnergy = 1;
+    public const int GoldPerEnergy = 3;
 
     public static bool CanPayWithGold(CardModel? card, int energyCost, out int goldRequired)
     {
