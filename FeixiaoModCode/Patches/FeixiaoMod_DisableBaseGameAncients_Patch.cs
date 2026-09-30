@@ -11,11 +11,11 @@ namespace FeixiaoMod.FeixiaoModCode.Patches;
 [HarmonyPatch(
     typeof(ActModel),
     nameof(ActModel.GenerateRooms), typeof(Rng), typeof(UnlockState), typeof(bool))]
-public static class Feixiaomod_DisableBaseGameAncients_Patch
+public static class FeixiaoMod_DisableBaseGameAncients_Patch
 {
     private static readonly MethodInfo FilterAncientsMethod =
         AccessTools.Method(
-            typeof(Feixiaomod_DisableBaseGameAncients_Patch),
+            typeof(FeixiaoMod_DisableBaseGameAncients_Patch),
             nameof(FilterAncients));
 
     private static readonly MethodInfo EnumerableConcatMethod =
