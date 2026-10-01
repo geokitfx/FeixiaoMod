@@ -12,24 +12,36 @@ using MegaCrit.Sts2.Core.Runs;
 namespace FeixiaoMod.FeixiaoModCode.Relics.Feixiao;
 
 [Pool(typeof(EventRelicPool))]
-public class WombTattooRelic() : CustomRelicModel
+public class WombTattooRelic : CustomRelicModel
 {
     public override RelicRarity Rarity => RelicRarity.Ancient;
     
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options)
     {
+        if (player != Owner)
+        {
+            return false;
+        }
         CardSkillCheck(cardRewards);
         return true;
     }
 
     public override void ModifyMerchantCardCreationResults(Player player, List<CardCreationResult> cards)
     {
+        if (player != Owner)
+        {
+            return;
+        }
         CardSkillCheck(cards);
     }
 
     public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
     {
         newCard = null;
+        if (card.Owner != Owner)
+        {
+            return false;
+        }
         if (!ModelDb.Enchantment<HeartOfHavocEnchant>().CanEnchant(card))
         {
             return false;
@@ -40,11 +52,11 @@ public class WombTattooRelic() : CustomRelicModel
 
     private void CardSkillCheck(List<CardCreationResult> options)
     {
-        HeartOfHavocEnchant se2 = ModelDb.Enchantment<HeartOfHavocEnchant>();
+        HeartOfHavocEnchant hohe = ModelDb.Enchantment<HeartOfHavocEnchant>();
         foreach (CardCreationResult option in options)
         {
             CardModel card = option.Card;
-            if (se2.CanEnchant(card))
+            if (hohe.CanEnchant(card))
             {
                 option.ModifyCard(EnchantCard(card), this);
             }
@@ -58,21 +70,20 @@ public class WombTattooRelic() : CustomRelicModel
         CardCmd.Preview(item);
         return item;
     }
-
-
+    
     public override async Task AfterObtained()
     {
         IEnumerable<CardModel> enumerable = PileType.Deck.GetPile(Owner).Cards.ToList();
         foreach (CardModel item in enumerable)
         {
-            if (item.Tags.Contains(CardTag.Strike) && ModelDb.Enchantment<HeartOfHavocEnchant>().CanEnchant(item))
+            if (ModelDb.Enchantment<HeartOfHavocEnchant>().CanEnchant(item))
             {
                 CardCmd.Enchant<HeartOfHavocEnchant>(item, 1);
                 CardCmd.Preview(item);
             }
         }
     }
-    
+
     public override string PackedIconPath => "res://FeixiaoMod/images/relics/feiWombTattoo_relic.png";
     protected override string PackedIconOutlinePath => "res://FeixiaoMod/images/relics/feiWombTattoo_relic.png";
     protected override string BigIconPath  => "res://FeixiaoMod/images/relics/feiWombTattoo_relic.png";

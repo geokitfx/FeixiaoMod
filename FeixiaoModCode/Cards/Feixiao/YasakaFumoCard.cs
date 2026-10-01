@@ -38,6 +38,6 @@ public class YasakaFumoCard() : CustomCardModel(1, CardType.Power, CardRarity.An
         EnergyCost.UpgradeBy(-1);
     }
     // PortraitPath 
-    public override string PortraitPath   => "res://FeixiaoMod/images/cards/feiWife_Plush_Power.png";
-    public override string CustomPortraitPath => "res://FeixiaoMod/images/cards/feiWife_Plush_Power.png";
+    public override string PortraitPath   => "res://FeixiaoMod/images/cards/feiWife_Plush_Power2.png";
+    public override string CustomPortraitPath => "res://FeixiaoMod/images/cards/feiWife_Plush_Power2.png";
 }

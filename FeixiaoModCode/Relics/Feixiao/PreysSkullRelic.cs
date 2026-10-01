@@ -24,18 +24,30 @@ public class PreysSkullRelic() : CustomRelicModel
     
     public override bool TryModifyCardRewardOptions(Player player, List<CardCreationResult> cardRewards, CardCreationOptions options)
     {
+        if (player != Owner)
+        {
+            return false;
+        }
         CardSkillCheck(cardRewards);
         return true;
     }
 
     public override void ModifyMerchantCardCreationResults(Player player, List<CardCreationResult> cards)
     {
-            CardSkillCheck(cards);
+        if (player != Owner)
+        {
+            return;
+        }
+        CardSkillCheck(cards);
     }
 
     public override bool TryModifyCardBeingAddedToDeck(CardModel card, out CardModel? newCard)
     {
         newCard = null;
+        if (card.Owner != Owner)
+        {
+            return false;
+        }
         if (!ModelDb.Enchantment<SkullGoldEnchant>().CanEnchant(card))
         {
             return false;

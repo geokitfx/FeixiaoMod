@@ -1,11 +1,8 @@
 ﻿using BaseLib.Abstracts;
 using MegaCrit.Sts2.Core.Commands;
 using MegaCrit.Sts2.Core.Entities.Cards;
-using MegaCrit.Sts2.Core.Entities.Creatures;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
-using MegaCrit.Sts2.Core.HoverTips;
 using MegaCrit.Sts2.Core.Models;
-using MegaCrit.Sts2.Core.Models.Enchantments;
 using MegaCrit.Sts2.Core.Models.Powers;
 using MegaCrit.Sts2.Core.ValueProps;
 
@@ -15,12 +12,12 @@ public class HeartOfHavocEnchant : CustomEnchantmentModel
 {
     
     public override bool HasExtraCardText => true;
-    
-    public override bool CanEnchantCardType(CardType cardType)
+
+    public override bool CanEnchant(CardModel card)
     {
-        return cardType == CardType.Attack;
+        return card.Tags.Contains(CardTag.Strike);
     }
-    
+
     public override decimal EnchantDamageMultiplicative(decimal originalDamage, ValueProp props)
     {
         return !props.IsPoweredAttack() ? 1 : 3;

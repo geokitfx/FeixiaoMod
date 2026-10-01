@@ -1,6 +1,7 @@
 ﻿using BaseLib.Abstracts;
 using BaseLib.Utils;
 using MegaCrit.Sts2.Core.Commands;
+using MegaCrit.Sts2.Core.Commands.Builders;
 using MegaCrit.Sts2.Core.Entities.Cards;
 using MegaCrit.Sts2.Core.GameActions.Multiplayer;
 using MegaCrit.Sts2.Core.HoverTips;
@@ -16,8 +17,6 @@ namespace FeixiaoMod.FeixiaoModCode.Cards.Feixiao;
 [Pool(typeof(EventCardPool))]
 public class FangedGrinCard() : CustomCardModel(2, CardType.Attack, CardRarity.Ancient, TargetType.AnyEnemy)
 {
-    private const string Healing = "Healing";
-
     protected override void AddExtraArgsToDescription(LocString description)
     {
         var playerCount = RunState?.Players.Count ?? 1; // choose desired default here
@@ -26,7 +25,7 @@ public class FangedGrinCard() : CustomCardModel(2, CardType.Attack, CardRarity.A
     
     public override bool CanBeGeneratedInCombat => false;
     
-    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(damage: 10, ValueProp.Move) , new(Healing, 7)];
+    protected override IEnumerable<DynamicVar> CanonicalVars => [new DamageVar(damage: 10, ValueProp.Move) , new("Healing", 7)];
 
     public override IEnumerable<CardKeyword> CanonicalKeywords => [CardKeyword.Exhaust];
     
@@ -37,15 +36,15 @@ public class FangedGrinCard() : CustomCardModel(2, CardType.Attack, CardRarity.A
         var combatState = CombatState;
         if (combatState != null)
         {
-            foreach (var players in combatState.GetTeammatesOf(Owner.Creature)
-                         .Where(c => c is { IsAlive: true, IsPlayer: true }))
+            ArgumentNullException.ThrowIfNull(cardPlay.Target);
+            bool shouldTriggerFatal = cardPlay.Target.Powers.All(p => p.ShouldOwnerDeathTriggerFatal());
+            AttackCommand attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCard(this).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_bite", null, "blunt_attack.mp3").Execute(choiceContext);
+            if (shouldTriggerFatal && attackCommand.Results.SelectMany(r => r).Any(r => r.WasTargetKilled))
             {
-                ArgumentNullException.ThrowIfNull(cardPlay.Target);
-                var shouldTriggerFatal = cardPlay.Target.Powers.All(p => p.ShouldOwnerDeathTriggerFatal());
-                var attackCommand = await DamageCmd.Attack(DynamicVars.Damage.BaseValue).FromCardCompatibility (this, cardPlay).Targeting(cardPlay.Target).WithHitFx("vfx/vfx_bite", tmpSfx: "blunt_attack.mp3").Execute(choiceContext);
-                if (!shouldTriggerFatal || !attackCommand.Results.SelectMany(r => r).Any(r => r.WasTargetKilled))
-                    return;
-                await CreatureCmd.Heal(players, DynamicVars["Healing"].BaseValue);;
+                foreach (var players in combatState.GetTeammatesOf(Owner.Creature).Where(c => c is { IsAlive: true, IsPlayer: true }))
+                { 
+                    await CreatureCmd.Heal(players, DynamicVars["Healing"].BaseValue);;
+                }
             }
         }
     }

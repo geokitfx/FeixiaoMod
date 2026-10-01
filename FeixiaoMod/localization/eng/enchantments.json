@@ -14,7 +14,7 @@
   "FEIXIAOMOD-SKULL_GOLD_ENCHANT.extraCardText": "If cast using Gold, Replay once.",
   "FEIXIAOMOD-SKULL_GOLD_ENCHANT.title": "Baleful Burden",
 
-  "FEIXIAOMOD-RUNE_HUNT_ENCHANT.description": "All [gold]Strike[/gold] cards deal [gold]Triple Damage[/gold] and applies [blue]Vulnerable[/blue] to self.",
-  "FEIXIAOMOD-RUNE_HUNT_ENCHANT.extraCardText": "Apply {Amount} Vulnerable to self.",
-  "FEIXIAOMOD-RUNE_HUNT_ENCHANT.title": "Heart of Havoc"
+  "FEIXIAOMOD-HEART_OF_HAVOC_ENCHANT.description": "All [gold]Strike[/gold] cards deal [gold]Triple Damage[/gold] and applies [blue]Vulnerable[/blue] to self.",
+  "FEIXIAOMOD-HEART_OF_HAVOC_ENCHANT.extraCardText": "Apply {Amount} Vulnerable to self.",
+  "FEIXIAOMOD-HEART_OF_HAVOC_ENCHANT.title": "Heart of Havoc"
 }
