@@ -1,4 +1,4 @@
-﻿using System.Runtime.CompilerServices;
+using System.Runtime.CompilerServices;
 using FeixiaoMod.FeixiaoModCode.Enchantments.Feixiao;
 using Godot;
 using HarmonyLib;
@@ -179,9 +179,10 @@ internal class HookBeforeCardPlayedGoldPatch
             var card = cardPlay.Card;
             var goldToSpend = GoldSpendFields.Get(card);
 
-            if (goldToSpend > 0 && card.CombatState is not null)
+            // Replaced cardPlay.Player with card.Owner which is universally available on CardModel
+            if (goldToSpend > 0 && card.CombatState is not null && card.Owner is not null)
             {
-                await PlayerCmd.LoseGold(goldToSpend, cardPlay.Player);
+                await PlayerCmd.LoseGold(goldToSpend, card.Owner);
             }
         }
     }
@@ -296,7 +297,7 @@ public static class NCard_UpdateEnergyCostVisuals_GoldTextPatch
 {
     // Lazy-load and cache custom gold coin texture
     private static Texture2D? _goldIcon;
-    private static Texture2D GoldIcon => _goldIcon ??= GD.Load<Texture2D>("res://FeixiaoMod/images/enchantments/old_coin.png");
+    private static Texture2D GoldIcon => _goldIcon ??= GD.Load<Texture2D>("res://FeixiaoMod/images/enchantments/feihuntarrow_icon.png");
 
     // Tracks default base game energy textures per NCard instance for bidirectional switching
     private static readonly ConditionalWeakTable<NCard, Texture2D> OriginalIcons = new();
