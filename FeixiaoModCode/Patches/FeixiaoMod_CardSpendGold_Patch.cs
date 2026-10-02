@@ -297,7 +297,7 @@ public static class NCard_UpdateEnergyCostVisuals_GoldTextPatch
 {
     // Lazy-load and cache custom gold coin texture
     private static Texture2D? _goldIcon;
-    private static Texture2D GoldIcon => _goldIcon ??= GD.Load<Texture2D>("res://FeixiaoMod/images/enchantments/feihuntarrow_icon.png");
+    private static Texture2D GoldIcon => _goldIcon ??= GD.Load<Texture2D>("res://FeixiaoMod/images/enchantments/feiburden_cost_icon.png");
 
     // Tracks default base game energy textures per NCard instance for bidirectional switching
     private static readonly ConditionalWeakTable<NCard, Texture2D> OriginalIcons = new();
