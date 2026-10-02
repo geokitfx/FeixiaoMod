@@ -297,48 +297,29 @@ public static class NCard_UpdateEnergyCostVisuals_GoldTextPatch
 {
     // Lazy-load and cache custom gold coin texture
     private static Texture2D? _goldIcon;
-    private static Texture2D GoldIcon => _goldIcon ??= GD.Load<Texture2D>("res://FeixiaoMod/images/enchantments/feiburden_cost_icon.png");
-
-    // Tracks default base game energy textures per NCard instance for bidirectional switching
-    private static readonly ConditionalWeakTable<NCard, Texture2D> OriginalIcons = new();
+    private static Texture2D GoldIcon => _goldIcon ??= GD.Load<Texture2D>("res://FeixiaoMod/images/enchantments/old_coin.png");
 
     [HarmonyPostfix]
     public static void Postfix(NCard __instance)
     {
         if (!__instance.IsNodeReady() || __instance.Model is not { } card) return;
 
-        // 1. Securely capture base energy texture prior to mutation
-        if (__instance._energyIcon.Texture != GoldIcon)
-        {
-            if (!OriginalIcons.TryGetValue(__instance, out _))
-            {
-                OriginalIcons.Add(__instance, __instance._energyIcon.Texture);
-            }
-        }
-
-        // 2. Evaluate current affordability
-
+        // 1. Evaluate current affordability
         var energyValue = card.EnergyCost.CostsX 
-            ? card.Owner.PlayerCombatState?.Energy ?? 0 
+            ? card.Owner?.PlayerCombatState?.Energy ?? 0 
             : Math.Max(0, card.EnergyCost.GetWithModifiers(CostModifiers.All));
         var isFreeOrZero = energyValue is 0;
         var goldCost = 0;
         var canPayWithGold = !isFreeOrZero && GoldSpendHelper.CanPayWithGold(card, energyValue, out goldCost);
 
-        // 3. Apply state-dependent visuals
+        // 2. Apply gold visuals ONLY when card is payable with gold
         if (canPayWithGold)
         {
             __instance._energyLabel.SetTextAutoSize(goldCost.ToString());
             __instance._energyIcon.Texture = GoldIcon;
         }
-        else
-        {
-            // Player cannot afford gold; revert icon back to standard energy orb
-            if (OriginalIcons.TryGetValue(__instance, out var originalTexture))
-            {
-                __instance._energyIcon.Texture = originalTexture;
-            }
-        }
+        // NOTE: If canPayWithGold is false, base game UpdateEnergyCostVisuals has ALREADY 
+        // set the card's correct native energy icon and text right before this Postfix ran!
     }
 }
 
